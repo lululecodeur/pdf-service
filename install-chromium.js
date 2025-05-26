@@ -4,6 +4,7 @@ const puppeteer = require('puppeteer');
 (async () => {
   console.log('⬇️ Téléchargement de Chromium via Puppeteer...');
   const browserFetcher = puppeteer.createBrowserFetcher();
-  const revisionInfo = await browserFetcher.download(puppeteer._preferredRevision);
+  const revision = puppeteer._preferredRevision;
+  const revisionInfo = await browserFetcher.download(revision);
   console.log('✅ Chromium installé à :', revisionInfo.executablePath);
 })();
