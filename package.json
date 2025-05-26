@@ -2,8 +2,7 @@
   "name": "pdf-service",
   "version": "1.0.0",
   "scripts": {
-    "start": "node index.js",
-    "postinstall": "npx playwright install --with-deps"
+    "start": "node index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
