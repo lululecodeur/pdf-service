@@ -30,7 +30,7 @@ app.post('/generate-pdf', async (req, res) => {
     console.log('🧪 Executable path :', puppeteer.executablePath());
 
     const browser = await puppeteer.launch({
-      headless: 'new',
+      headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
 
