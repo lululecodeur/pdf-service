@@ -1,9 +1,9 @@
 const express = require('express');
 const cors = require('cors');
-const chrome = require('chrome-aws-lambda');
-const puppeteer = require('puppeteer-core');
+const puppeteer = require('puppeteer');
 
 const app = express();
+
 app.use(cors({ origin: '*', methods: ['POST'], allowedHeaders: ['Content-Type'] }));
 app.use(express.json({ limit: '10mb' }));
 
@@ -13,9 +13,8 @@ app.post('/generate-pdf', async (req, res) => {
     const filename = req.body.filename || 'devis.pdf';
 
     const browser = await puppeteer.launch({
-      args: chrome.args,
-      executablePath: await chrome.executablePath,
-      headless: chrome.headless,
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
 
     const page = await browser.newPage();
