@@ -27,7 +27,6 @@ app.post('/generate-pdf', async (req, res) => {
 
     // ✅ Logs utiles pour debug Render
     console.log('✅ Puppeteer version :', puppeteer.version);
-    console.log('🧪 Executable path :', puppeteer.executablePath());
 
     const browser = await puppeteer.launch({
       headless: true,
